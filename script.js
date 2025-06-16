@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let isOpen = false;
     let audioEnabled = false;
     let lyricsInterval;
-    
 
     // Enhanced lyrics with emojis
     const lyrics = [
@@ -192,6 +191,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         isOpen = !isOpen;
     });
+    function showLyric(text) {
+  const lyricsContainer = document.querySelector('.lyrics-container');
+  lyricsContainer.textContent = text;
+  lyricsContainer.classList.add('active');
+  
+  // Auto-resize for long lyrics
+  if (text.length > 30) {
+    lyricsContainer.style.fontSize = '1.3rem';
+  } else {
+    lyricsContainer.style.fontSize = ''; // Reset
+  }
+}
 
     // ... (keep all your existing createHearts, createStars, createSparkles, 
     // createConfetti, and createGiftSparkles functions)
