@@ -402,3 +402,30 @@ body {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .lyrics-container { background: rgba(255,105,180,0.5); }
 }
+@media (max-width: 768px) {
+    .lyrics-container {
+        bottom: 25vh; /* Increased from 22vh */
+        width: 85vw;
+        padding: 15px;
+        font-size: 1.5rem;
+        background: rgba(255, 105, 180, 0.6); /* More visible background */
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px); /* For iOS */
+        transform: translateX(-50%) !important; /* Ensure transform works */
+    }
+    
+    /* Make sure it's not being hidden by other elements */
+    .lyrics-container.active {
+        display: block !important;
+        opacity: 1 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .lyrics-container {
+        bottom: 30vh; /* Higher position */
+        font-size: 1.4rem;
+        max-width: 90%;
+        animation: gentleFloat 4s ease-in-out infinite !important; /* Re-enable animation */
+    }
+}
